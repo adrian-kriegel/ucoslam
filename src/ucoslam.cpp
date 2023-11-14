@@ -11,9 +11,9 @@ UcoSlam::~UcoSlam(){
     delete (System*)impl;
 }
 
-void UcoSlam::setParams(std::shared_ptr<Map> map, const  ucoslam::Params &params, const std::string &vocabulary){
-
-    reinterpret_cast<System*>(impl)->setParams(map,params,vocabulary);
+void UcoSlam::setParams(std::shared_ptr<Map> map, const  ucoslam::Params &params, std::string vocabulary, std::shared_ptr<ucoslam::MarkerDetector> markerDetector)
+{
+    reinterpret_cast<System*>(impl)->setParams(map,params,vocabulary, markerDetector);
 }
 
 void UcoSlam::clear(){

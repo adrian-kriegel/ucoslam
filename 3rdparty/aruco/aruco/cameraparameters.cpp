@@ -194,7 +194,7 @@ namespace aruco
         if (MCamera.cols == 0 || MCamera.rows == 0){
             fs["Camera_Matrix"] >> MCamera;
             if (MCamera.cols == 0 || MCamera.rows == 0)
-                throw cv::Exception(9007, "File :" + filePath + " does not contains valid camera matrix",
+                throw cv::Exception(9007, "File :" + filePath + " does not contain valid camera matrix",
                                     "CameraParameters::readFromXML", __FILE__, __LINE__);
         }
 
@@ -202,7 +202,7 @@ namespace aruco
             fs["image_Width"] >> w;
             fs["image_Height"] >> h;
             if (w == -1 || h == 0)
-                throw cv::Exception(9007, "File :" + filePath + " does not contains valid camera dimensions",
+                throw cv::Exception(9007, "File :" + filePath + " does not contain valid image_Width or image_Height",
                                     "CameraParameters::readFromXML", __FILE__, __LINE__);
         }
         if (MCamera.type() != CV_32FC1)
@@ -213,7 +213,7 @@ namespace aruco
         if (MDist.total() < 4){
             fs["Distortion_Coefficients"] >> MDist;
             if (MDist.total() < 4)
-                throw cv::Exception(9007, "File :" + filePath + " does not contains valid distortion_coefficients",
+                throw cv::Exception(9007, "File :" + filePath + " does not contain valid distortion_coefficients",
                                     "CameraParameters::readFromXML", __FILE__, __LINE__);
         }
         // convert to 32 and get the 4 first elements only

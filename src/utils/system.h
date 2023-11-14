@@ -23,7 +23,7 @@
 #include <memory>
 #include <opencv2/core/core.hpp>
 #include "ucoslamtypes.h"
-#include "markerdetector.h"
+#include "utils/markerdetector.h"
 #include "imageparams.h"
 #include "basictypes/se3.h"
 #include "map_types/frame.h"

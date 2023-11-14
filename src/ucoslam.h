@@ -24,6 +24,8 @@
 #include "ucoslamtypes.h"
 #include "imageparams.h"
 #include "map.h"
+#include "utils/markerdetector.h"
+
 namespace ucoslam{
 class UCOSLAM_API UcoSlam{
 public:
@@ -41,7 +43,8 @@ public:
      * @param vocabulary optional path to the dictionary BOW. Without it, relocalization is not yet possible.
      */
 
-    void setParams(std::shared_ptr<Map> map, const  ucoslam::Params &params, const std::string &vocabulary="");
+
+    void setParams(std::shared_ptr<Map> map, const  ucoslam::Params &params, std::string vocabulary = "", std::shared_ptr<ucoslam::MarkerDetector> markerDetector = nullptr);
 
     //Clear this object setting it to intial state. It will remove all map data
     void clear();

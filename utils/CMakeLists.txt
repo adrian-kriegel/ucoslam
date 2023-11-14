@@ -14,6 +14,7 @@ ADD_EXECUTABLE(ucoslam_pmvs2 ucoslam_pmvs2.cpp  )
 
 ADD_EXECUTABLE(ucoslam_fullba ucoslam_fullba.cpp g2oba.h cvprojectpoint.h)
 
+include_directories(../)
 
 INSTALL(TARGETS 
     ucoslam_monocular 

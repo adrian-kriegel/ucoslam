@@ -24,7 +24,7 @@
 #include "featureextractors/feature2dserializable.h"
 #include "map_types/frame.h"
 #include "imageparams.h"
-#include "markerdetector.h"
+#include "utils/markerdetector.h"
 #include <memory>
 namespace  aruco{
 class MarkerDetector;

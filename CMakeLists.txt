@@ -12,8 +12,10 @@ set(CMAKE_CXX_EXTENSIONS ON) #...with compiler extensions like gnu++11
 set(CMAKE_CXX_STANDARD 17) # C++11...
 
 IF(NOT CMAKE_BUILD_TYPE )
-   SET( CMAKE_BUILD_TYPE "Release" )
+   SET( CMAKE_BUILD_TYPE Debug)
 ENDIF()
+
+MESSAGE("Creating ${CMAKE_BUILD_TYPE} build")
 
 #------------------------------------------------------
 # Lib Names and Dirs

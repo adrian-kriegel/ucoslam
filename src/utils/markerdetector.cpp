@@ -1,4 +1,4 @@
-#include "markerdetector.h"
+#include "utils/markerdetector.h"
 #include "aruco/markerdetector.h"
 #include "optimization/ippe.h"
 
@@ -12,7 +12,6 @@ ArucoMarkerDetector:: ArucoMarkerDetector(const Params &p){
     _mdetector=std::make_shared<aruco::MarkerDetector>();
     setParams(p);
 }
-
 
 void ArucoMarkerDetector::setParams(const Params &p){
     aruco::MarkerDetector::Params aruco_DetectorParams;

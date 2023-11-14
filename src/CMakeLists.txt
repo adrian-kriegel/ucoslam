@@ -17,7 +17,9 @@ FILE(GLOB ucoslam_utils_src "utils/*.cpp" )
 FILE(GLOB ucoslam_basictypes_hdr "basictypes/*.h" )
 FILE(GLOB ucoslam_basictypes_src "basictypes/*.cpp" )
 
+MESSAGE("HEADERS ${ucoslam_utils_hdr}")
 
+include_directories(../)
 
 
 ADD_LIBRARY(${PROJECT_NAME}  ${ucoslam_hdrs_base} ${ucoslam_srcs_base} ${ucoslam_fextractors_src} ${ucoslam_fextractors_hdr}  ${ucoslam_basictypes_src} ${ucoslam_basictypes_hdr}  ${ucoslam_map_hdr} ${ucoslam_map_src} ${ucoslam_utils_hdr} ${ucoslam_utils_src} ${ucoslam_opt_src} ${ucoslam_opt_hdr})
@@ -37,7 +39,7 @@ INSTALL(TARGETS ${PROJECT_NAME}
 
 
 
-INSTALL(FILES ${ucoslam_hdrs_base}
+INSTALL(FILES ${ucoslam_hdrs_base} ${ucoslam_utils_hdr}
     DESTINATION include/${PROJECT_NAME}
     COMPONENT main)
 
@@ -46,4 +48,6 @@ INSTALL(FILES ${ucoslam_hdrs_base}
 #INSTALL(FILES ${ucoslam_utils_hdr}       DESTINATION include/${PROJECT_NAME}/utils COMPONENT main)
 INSTALL(FILES ${ucoslam_map_hdr}         DESTINATION include/${PROJECT_NAME}/map_types COMPONENT main)
 INSTALL(FILES ${ucoslam_basictypes_hdr}         DESTINATION include/${PROJECT_NAME}/basictypes COMPONENT main)
+
+INSTALL(FILES ${ucoslam_utils_hdr}  DESTINATION include/utils COMPONENT main)
 

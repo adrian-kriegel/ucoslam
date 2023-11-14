@@ -141,14 +141,14 @@ void ImageParams::readFromXMLFile(std::string filePath)
     if (MCamera.cols == 0 || MCamera.rows == 0){
         fs["Camera_Matrix"] >> MCamera;
         if (MCamera.cols == 0 || MCamera.rows == 0)
-            throw std::runtime_error(std::string(__FILE__)+" File :" + filePath + " does not contains valid camera matrix");
+            throw std::runtime_error(std::string(__FILE__)+" File :" + filePath + " does not contain valid Camera_Matrix");
     }
 
     if (w == -1 || h == 0){
         fs["image_Width"] >> w;
         fs["image_Height"] >> h;
         if (w == -1 || h == 0)
-           throw std::runtime_error(std::string(__FILE__)+  "File :" + filePath + " does not contains valid camera dimensions");
+           throw std::runtime_error(std::string(__FILE__)+  "File :" + filePath + " does not contain valid image_Width or image_Height");
     }
     if (MCamera.type() != CV_32FC1)
         MCamera.convertTo(CameraMatrix, CV_32FC1);
@@ -158,7 +158,7 @@ void ImageParams::readFromXMLFile(std::string filePath)
     if (MDist.total() < 4 && !fisheye_model){
         fs["Distortion_Coefficients"] >> MDist;
         if (MDist.total() < 4)
-             throw std::runtime_error(std::string(__FILE__)+   "File :" + filePath + " does not contains valid distortion_coefficients" );
+             throw std::runtime_error(std::string(__FILE__)+   "File :" + filePath + " does not contain valid Distortion_Coefficients" );
     }
 
     // convert to 32 and get the first elements only

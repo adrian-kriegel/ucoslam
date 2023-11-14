@@ -220,6 +220,7 @@ void MapManager::reset(){
 
 
 Frame& MapManager::addKeyFrame(Frame *newPtrFrame){
+
     auto getNOFValidMarkers=[this](){
         int nValidMarkers=0;
         for(auto &m:TheMap->map_markers)
@@ -231,6 +232,8 @@ Frame& MapManager::addKeyFrame(Frame *newPtrFrame){
     __UCOSLAM_ADDTIMER__
     Frame &newFrame=TheMap->addKeyFrame(*newPtrFrame);
     _lastAddedKeyFrame=newFrame.idx;
+
+    std::cout << "MArkers" << newFrame.markers.size() << std::endl;
 
     __UCOSLAM_TIMER_EVENT__("Add frame  ");
     youngKeyFrames.insert({newFrame.idx,0});

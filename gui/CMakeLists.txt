@@ -12,7 +12,7 @@ find_package(Qt5Network REQUIRED)
 #################################
 # Add modules
 #################################
-
+include_directories(../)
 include_directories(. ./tools ../src)
 SET(BUILD_QT ON)
 SET(EXTRALIBNAME "UcoSLAMGUI_")
