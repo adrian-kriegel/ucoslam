@@ -232,7 +232,12 @@ cv::Mat System::process(const Frame &frame) {
 
 
     //if lost after very few keyframes, reset map
-    if( currentState==STATE_LOST && currentMode==MODE_SLAM && TheMap->keyframes.size()<=5 && TheMap->keyframes.size()!=0){
+    if( 
+        currentState==STATE_LOST && 
+        currentMode==MODE_SLAM && 
+        TheMap->keyframes.size() <= _params.mMaxKeyFramesDroppedWhenLost && 
+        TheMap->keyframes.size()!=0
+    ){
         TheMapManager->reset();
         TheMap->clear();
         map_initializer->reset();

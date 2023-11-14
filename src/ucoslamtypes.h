@@ -152,6 +152,10 @@ struct UCOSLAM_API Params{
     //possible unused
     float thRefRatio=0.9;//ratoi of matches found in current frame compared to ref keyframe to consider a new keyframe to be inserted
      float minBaseLine=0.07;//minimum preffered distance  between keyframes. this value is ignored if no markers are present
+
+    // The map may reset if the pose is lost after this number of key frames. 
+    int mMaxKeyFramesDroppedWhenLost = 0;
+
 #pragma warning "to remove "
     bool removeKeyPointsIntoMarkers=true;
 
