@@ -3,13 +3,15 @@
 # ----------------------------------------------------------------------------
 CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 
+project(ucoslam VERSION "1.1.1" LANGUAGES CXX C)
 
-project(ucoslam VERSION "1.1.1" LANGUAGES CXX)
+add_compile_definitions(-DEIGEN_DONT_VECTORIZE -DEIGEN_DISABLE_UNALIGNED_ARRAY_ASSERT)
+
 set(PROJECT_SOVERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}")
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON) #...is required...
 set(CMAKE_CXX_EXTENSIONS ON) #...with compiler extensions like gnu++11
-set(CMAKE_CXX_STANDARD 17) # C++11...
+set(CMAKE_CXX_STANDARD 14) # C++11...
 
 IF(NOT CMAKE_BUILD_TYPE )
    SET( CMAKE_BUILD_TYPE Debug)
@@ -24,7 +26,6 @@ include(cmake/options.cmake)
 include(cmake/compiler.cmake)
 include(cmake/dependencies.cmake)
 
-
 if(WIN32)
     # Postfix of DLLs:
     SET(PROJECT_DLLVERSION "${PROJECT_VERSION_MAJOR}${PROJECT_VERSION_MINOR}${PROJECT_VERSION_PATCH}")
@@ -35,7 +36,6 @@ else()
     # Postfix of so's:
     set(PROJECT_DLLVERSION) 
 endif()
-
 
 
 
@@ -58,7 +58,6 @@ IF(BUILD_DEBUGTESTS)
 ADD_SUBDIRECTORY(debugtests)
 ENDIF()
 
-
 # ----------------------------------------------------------------------------
 #   Uninstall target, for "make uninstall"
 # ----------------------------------------------------------------------------
@@ -73,8 +72,14 @@ INSTALL(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake" DESTINATION sh
 
 include(cmake/display.cmake)
 
+# ADD_SUBDIRECTORY(ucoslam_wrapper)
 
 # Package Generator  #######################################################
 IF(BUILD_DEBPACKAGE)
 include(cmake/cpack.cmake)
 ENDIF()
+
+ADD_SUBDIRECTORY(ucoslam_wrapper)
+
+
+message(WARNING "${UCOSLAM_REQUIRED_LIBRARIES}")

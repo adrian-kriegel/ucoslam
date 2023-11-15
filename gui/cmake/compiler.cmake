@@ -14,7 +14,7 @@ find_package(OpenMP  )
 #ENDIF()
 
  IF(CMAKE_COMPILER_IS_GNUCXX OR MINGW)
- SET(GENERAL_FLAGS " -Wall -std=c++11 -mmmx -msse -msse2 -msse3 ${OpenMP_CXX_FLAGS}")
+ SET(GENERAL_FLAGS " -Wall -std=c++14 -mmmx -msse -msse2 -msse3 ${OpenMP_CXX_FLAGS}")
  add_definitions( -DUSE_SSE)
  IF(WARNINGS_ARE_ERRORS)
      SET(GENERAL_FLAGS   "${GENERAL_FLAGS}  -Werror ")

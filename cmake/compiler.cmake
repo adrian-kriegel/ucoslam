@@ -1,7 +1,7 @@
 set(WARNINGS_ARE_ERRORS 		OFF CACHE BOOL "Treat warnings as errors")
 set(WHOLE_PROGRAM_OPTIMIZATION 	OFF CACHE BOOL "Flags for whole program optimization.")
 
-set(EXTRA_CXX_FLAGS "-march=native -Wall")
+set(EXTRA_CXX_FLAGS "-march=native -Wall ")
 
  IF(USE_TIMERS)
  add_definitions(-DUSE_TIMERS)
@@ -19,7 +19,7 @@ set(EXTRA_CXX_FLAGS "-march=native -Wall")
          set(GENERAL_FLAGS "${GENERAL_FLAGS}  -mabi=aapcs-linux -marm  -march=armv6 -mfloat-abi=hard  -mfp16-format=none -mfpu=vfp -mlittle-endian -mpic-data-is-text-relative -mrestrict-it -msched-prolog -mstructure-size-boundary=0x20 -mtp=auto -mtls-dialect=gnu -munaligned-access -mvectorize-with-neon-quad")
  else() #x86_64
 
-     SET(GENERAL_FLAGS "-std=c++11 -mmmx -msse -msse2 -msse3")
+     SET(GENERAL_FLAGS "-std=c++14 -mmmx -msse -msse2 -msse3")
      add_definitions( -DUSE_SSE)
      IF(WARNINGS_ARE_ERRORS)
          SET(GENERAL_FLAGS   "${GENERAL_FLAGS}  -Werror -Wno-ignored-attributes  ")

@@ -48,9 +48,9 @@ IF(NOT BUILD_OWN_G2O)
 ELSE ()
     include_directories(3rdparty/g2o/)
     ADD_SUBDIRECTORY(3rdparty/g2o/g2o)
+    SET(G2O_LIBS    ${EXTRALIBNAME}g2o_stuff  ${EXTRALIBNAME}g2o_core       )
 ENDIF()
 
-SET(G2O_LIBS    ${EXTRALIBNAME}g2o_stuff  ${EXTRALIBNAME}g2o_core       )
 
 IF(CHANGED_BUILD_TYPE STREQUAL "YES")
 SET(CMAKE_BUILD_TYPE "Debug")

@@ -18,6 +18,7 @@
 */
 #ifndef __UCOSLAM_H__
 #define __UCOSLAM_H__
+
 #include <memory>
 #include <opencv2/core/core.hpp>
 #include "ucoslam_exports.h"
