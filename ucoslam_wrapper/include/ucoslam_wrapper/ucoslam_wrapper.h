@@ -33,6 +33,10 @@ public:
   void setParams(const ucoslam::Params& params);
 
   cv::Mat process(cv::Mat image, const ucoslam::ImageParams& imageParams, uint frameIdx);
+
+  UcoSlam& getSLAMInstance() { return *mUcoSLAM; }
+
+  std::shared_ptr<Map> getMap() { return mMap; }
 };
 
 } // namespace ucoslam
